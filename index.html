@@ -1,0 +1,58 @@
+<!doctype html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script type="text/javascript">
+	
+  $(function() {
+  var $window = $(window);
+  var socket = io.connect();
+  var username = '';
+  var connected = true;
+  var typing = false;
+  var resstatus;
+  var ipaddress;
+ 
+  setSocketName();
+
+  function setSocketName () {
+    var TNTCookie = Cookies.get();
+    var hoststring = TNTCookie["TNTscale"];
+    var finalhost = hoststring.substring(4,hoststring.length - 2);
+    console.log(finalhost);
+    socket.emit('creategroup', {"roomname" : finalhost});
+    }
+
+  function addWeight (data, options) {
+    $(".shipweight").val(data.message);
+  }
+
+  socket.on('new message', function (data) {
+    addWeight(data);
+  });
+
+  socket.on('disconnect', function () {
+    log('you have been disconnected, you ass!');
+  });
+
+  socket.on('reconnect', function () {
+    log('you have been reconnected, finally. Ass!');
+//      var TNTCookieTest = Cookies.get();
+
+//      socket.emit('creategroup', {"roomname" : TNTCookie});
+  });
+
+  socket.on('reconnect_error', function () {
+    log('attempt to reconnect has failed, suites you right. Ass!');
+  });
+});
+</script>
+</head>
+<body>
+<center>
+<h1><label for shipweight>Shipping weight</label></h1>
+<input type="text" class="shipweight" id="shipweight">
+</center>
+</body>
+</html>

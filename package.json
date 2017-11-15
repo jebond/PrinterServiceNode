@@ -1,0 +1,30 @@
+{
+  "name": "PrinterServiceNode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "dns": "^0.2.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "js-cookie": "^2.2.0",
+    "node-xwhois": "^1.0.7",
+    "pm2": "^2.7.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jebond/PrinterServiceNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jebond/PrinterServiceNode/issues"
+  },
+  "homepage": "https://github.com/jebond/PrinterServiceNode#readme"
+}
